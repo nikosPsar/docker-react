@@ -1,0 +1,8 @@
+FROM node:alpine
+WORKDIR '/app'
+COPY package.json .
+ENV HTTP_PROXY=http://icache.intracomtel.com:80
+ENV HTTPS_PROXY=http://icache.intracomtel.com:80
+RUN npm install
+COPY . .
+CMD ["npm", "run", "start"]
